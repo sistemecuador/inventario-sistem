@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+<h1>Nombre: {{ context.nombre }}</h1>
+<h2>edad: {{ context.edad }}</h2>
+<div>
+    <h3>Lista de usuarios</h3>
+    <h4>Bienvenido: {{ current_user }}</h4>
+    <ul>
+        {% for usuario in context.usuarios %}
+            <li>{{ usuario }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+</body>
+</html>

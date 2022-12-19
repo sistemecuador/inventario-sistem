@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AdminLTE 3 | Registration Page</title>
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static',filename='lib/AdminLTE-3.2.0/plugins/fontawesome-free/css/all.min.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static',filename='lib/AdminLTE-3.2.0/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static',filename='lib/AdminLTE-3.2.0/dist/css/adminlte.min.css') }}">
+
+    <script src="{{ url_for('static',filename='lib/AdminLTE-3.2.0/plugins/jquery/jquery.min.js') }}"></script>
+
+    <script src="{{ url_for('static',filename='lib/AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+    <script src="{{ url_for('static',filename='lib/AdminLTE-3.2.0/dist/js/adminlte.min.js') }}"></script>
+
+</head>
+<body class="hold-transition register-page">
+<div class="register-box">
+    {% block alerta_sistema %}
+        {% if get_flashed_messages() %}
+            {% with messages = get_flashed_messages() %}
+                <div class="alert alert-info alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×
+                    </button>
+                    <h5><i class="icon fas fa-info"></i> Alerta!</h5>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </div>
+            {% endwith %}
+        {% endif %}
+    {% endblock %}
+    <div class="register-logo">
+        <a href=""><b>Inventario</b>SISTEM</a>
+    </div>
+    <div class="card">
+        <div class="card-body register-card-body">
+            <p class="login-box-msg">Registro de sistemas</p>
+            <form action="" method="post" novalidate>
+                {{ form.hidden_tag() }}
+                <div class="input-group mb-3">
+                    {{ form.username }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
+                    </div>
+                    {% if form.username.errors %}
+                        <script>
+                            let username = document.getElementById('username')
+                            username.classList.add('is-invalid')
+
+                        </script>
+                        {% for error in form.username.errors %}
+                            <span class="error invalid-feedback">{{ error }}</span>
+                        {% endfor %}
+
+                    {% endif %}
+
+                </div>
+                <div class="input-group mb-3">
+                    {{ form.first_name }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
+                    </div>
+                    {% if form.first_name.errors %}
+                        <script>
+                            let first_name = document.getElementById('first_name')
+                            first_name.classList.add('is-invalid')
+                        </script>
+                    {% endif %}
+                </div>
+                <div class="input-group mb-3">
+                    {{ form.last_name }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
+                    </div>
+                    {% if form.last_name.errors %}
+                        <script>
+                            let last_name = document.getElementById('last_name')
+                            last_name.classList.add('is-invalid')
+                        </script>
+                    {% endif %}
+                </div>
+                <div class="input-group mb-3">
+                    {{ form.password }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                    {% if form.password.errors %}
+                        <script>
+                            let password = document.getElementById('password')
+                            password.classList.add('is-invalid')
+                        </script>
+                    {% endif %}
+                </div>
+                <div class="input-group mb-3">
+                    {{ form.email }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-at"></span>
+                        </div>
+                    </div>
+                    {% if form.email.errors %}
+                        <script>
+                            let email = document.getElementById('password')
+                            email.classList.add('is-invalid')
+                        </script>
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.register }}
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

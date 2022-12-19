@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AdminLTE 3 | Log in</title>
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static',filename='lib/AdminLTE-3.2.0/plugins/fontawesome-free/css/all.min.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static',filename='lib/AdminLTE-3.2.0/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static',filename='lib/AdminLTE-3.2.0/dist/css/adminlte.min.css') }}">
+
+
+    <script src="{{ url_for('static',filename='lib/AdminLTE-3.2.0/plugins/jquery/jquery.min.js') }}"></script>
+
+    <script src="{{ url_for('static',filename='lib/AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+    <script src="{{ url_for('static',filename='lib/AdminLTE-3.2.0/dist/js/adminlte.min.js') }}"></script>
+
+</head>
+<body class="hold-transition login-page">
+<div class="login-box">
+    {% block alerta_sistema %}
+        {% if get_flashed_messages() %}
+            {% with messages = get_flashed_messages() %}
+                <div class="alert alert-warning alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×
+                    </button>
+                    <h5><i class="icon fas fa-info"></i> Alerta!</h5>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </div>
+            {% endwith %}
+        {% endif %}
+    {% endblock %}
+    <div class="login-logo">
+        <a href=""><b>Inventario</b>Sistem</a>
+    </div>
+
+    <div class="card">
+        <div class="card-body login-card-body">
+            <p class="login-box-msg">Ingresa tus credenciales</p>
+            <form action="" method="post">
+                {{ form.hidden_tag() }}
+                <div class="input-group mb-3">
+                    {{ form.username }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    {{ form.password }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-8">
+                        <div class="icheck-primary">
+                            {{ form.remember_me }}
+                            <label for="remember">
+                                Remember Me
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        {{ form.enviar }}
+                    </div>
+
+                </div>
+            </form>
+
+            <p class="mb-1">
+                <a href="forgot-password.html">Olvide mi contrasenia</a>
+            </p>
+            <p class="mb-0">
+                <a href="{{ url_for('login.registro') }}" class="text-center">Registrarse al sistema</a>
+            </p>
+        </div>
+
+    </div>
+</div>
+
+
+</body>
+</html>

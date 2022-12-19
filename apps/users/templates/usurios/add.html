@@ -1,0 +1,5 @@
+{% extends 'layaout.html' %}
+{% from 'macros/render_form.html' import render_form %}
+{% block contenido %}
+    {{ render_form(form,title=card_title) }}
+{% endblock %}
