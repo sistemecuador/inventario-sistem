@@ -2,7 +2,7 @@ from config.constantes import UPLOAD_FOLDER
 
 
 class Config(object):
-    DEBUG = True
+    DEBUG = False
     # SERVER_NAME = 'localhost:6000'
     SECRET_KEY = 'kjasgsjgsjdgjsdkkjsdjhgsdhgdsjbh'
     UPLOAD_FOLDER = UPLOAD_FOLDER
