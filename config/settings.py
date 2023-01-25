@@ -12,11 +12,11 @@ class Config(object):
 
 
 class Developer(Config):
-    SQLALCHEMY_DATABASE_URI = "sqlite:///project.db"
+    SQLALCHEMY_DATABASE_URI = f'postgresql://postgres:Nomeacuerdo123.@localhost:5433/inventario'
 
 
 class Productions(Config):
-    SQLALCHEMY_DATABASE_URI = f'postgresql://postgres:Nomeacuerdo123.@localhost:5433/flask'
+    SQLALCHEMY_DATABASE_URI = f'postgresql://postgres:Nomeacuerdo123.@localhost:5433/inventario'
 
 
 class Test(Config):
